@@ -1,4 +1,6 @@
-Content\scene.xnb
-Content\jeremyhead.xnb
-Content\hammer.xnb
+Content\ExampleGame\scene.xnb
+Content\ExampleGame\jeremyhead.xnb
+Content\ExampleGame\hammer.xnb
+Content\TopDown\Maps\Zelda\map.xnb
 Content\myFont.xnb
+Content\TopDown\Maps\Zelda\map.txt

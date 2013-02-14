@@ -18,8 +18,8 @@ namespace TheGame
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            ExampleGame.Activity = this;
-            var g = new ExampleGame();
+            ExampleGame.ExampleGameMain.Activity = this;
+            var g = new ExampleGame.ExampleGameMain();
             SetContentView(g.Window);
             g.Run();
         }

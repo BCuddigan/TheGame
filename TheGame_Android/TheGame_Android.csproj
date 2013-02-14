@@ -38,6 +38,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -46,29 +50,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\TheGame\TheGame\ExampleGame.cs">
-      <Link>ExampleGame.cs</Link>
+    <Compile Include="..\TheGame\TheGame\ExampleGame\ExampleGameMain.cs">
+      <Link>ExampleGame\ExampleGameMain.cs</Link>
     </Compile>
-    <Compile Include="..\TheGame\TheGame\TheHead.cs">
-      <Link>TheHead.cs</Link>
+    <Compile Include="..\TheGame\TheGame\ExampleGame\TheHead.cs">
+      <Link>ExampleGame\TheHead.cs</Link>
+    </Compile>
+    <Compile Include="..\TheGame\TheGame\Helper.cs">
+      <Link>Helper.cs</Link>
+    </Compile>
+    <Compile Include="..\TheGame\TheGame\Selector.cs">
+      <Link>Selector.cs</Link>
+    </Compile>
+    <Compile Include="..\TheGame\TheGame\TopDown\Map.cs">
+      <Link>TopDown\Map.cs</Link>
+    </Compile>
+    <Compile Include="..\TheGame\TheGame\TopDown\TopDownMain.cs">
+      <Link>TopDown\TopDownMain.cs</Link>
+    </Compile>
+    <Compile Include="..\TheGame\TheGame\Tron\TronMain.cs">
+      <Link>Tron\TronMain.cs</Link>
+    </Compile>
+    <Compile Include="..\TheGame\TheGame\YourGame\YourGameMain.cs">
+      <Link>YourGame\YourGameMain.cs</Link>
     </Compile>
     <Compile Include="Activity1.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\TheGame\TheGame\bin\x86\Debug\Content\hammer.xnb">
-      <Link>Assets\Content\hammer.xnb</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\TheGame\TheGame\bin\x86\Debug\Content\jeremyhead.xnb">
-      <Link>Assets\Content\jeremyhead.xnb</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\TheGame\TheGame\bin\x86\Debug\Content\myFont.xnb">
       <Link>Assets\Content\myFont.xnb</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\TheGame\TheGame\bin\x86\Debug\Content\scene.xnb">
-      <Link>Assets\Content\scene.xnb</Link>
+    <AndroidAsset Include="..\TheGame\TheGame\bin\x86\Debug\Content\ExampleGame\hammer.xnb">
+      <Link>Assets\Content\ExampleGame\hammer.xnb</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\TheGame\TheGame\bin\x86\Debug\Content\ExampleGame\jeremyhead.xnb">
+      <Link>Assets\Content\ExampleGame\jeremyhead.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\TheGame\TheGame\bin\x86\Debug\Content\ExampleGame\scene.xnb">
+      <Link>Assets\Content\ExampleGame\scene.xnb</Link>
+    </AndroidAsset>
+    <None Include="..\TheGame\TheGame\bin\x86\Debug\Content\TopDown\Maps\Zelda\map.xnb">
+      <Link>Assets\Content\TopDown\Maps\Zelda\map.xnb</Link>
+    </None>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
@@ -90,6 +115,11 @@
       <Project>{565129E0-4EE5-4F6F-B403-C3484C9740BE}</Project>
       <Name>Lidgren.Network.Android</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\TheGame\TheGame\bin\x86\Debug\Content\TopDown\Maps\Zelda\map.txt">
+      <Link>Assets\Content\TopDown\Maps\Zelda\map.txt</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

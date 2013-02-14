@@ -10,7 +10,7 @@ namespace TheGame
         /// </summary>
         static void Main(string[] args)
         {
-            using (ExampleGame game = new ExampleGame())
+            using (Selector game = new Selector())
             {
                 game.Run();
             }

@@ -1,3 +1,14 @@
+/*
+ *This game is only for reference, use code examples from the other games in this project 
+ * 
+ * 
+ * Created By Ryan Hatfield
+ * 
+ * 
+ * 
+ * 
+ */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +19,23 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Input.Touch;
 
-namespace TheGame
+#if ANDROID
+using Microsoft.Xna.Framework.Input.Touch;
+#endif
+
+namespace TheGame.ExampleGame
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class ExampleGame : Microsoft.Xna.Framework.Game
+    public class ExampleGameMain : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        #if ANDROID
         private TouchCollection touch;
+        #endif
         private MouseState mouse;
         private Vector2 baseScreenSize;
         private Texture2D background;
@@ -48,15 +64,12 @@ namespace TheGame
             new Rectangle(330, 130, (int)(231 / 2.5), (int)(166 / 2.5))
         };
 
-        public ExampleGame()
+        public ExampleGameMain()
         {
             
             #region Giberish you don't need to know about
             graphics = new GraphicsDeviceManager(this);
-#if ANDROID
-            //graphics.IsFullScreen = true;
-            //graphics.ApplyChanges();
-#endif
+
             this.IsMouseVisible = true;
 
             Window.AllowUserResizing = true;
@@ -110,8 +123,8 @@ namespace TheGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            background = Content.Load<Texture2D>("scene");
-            headTexture = Content.Load<Texture2D>("jeremyhead");
+            background = Content.Load<Texture2D>("ExampleGame/scene");
+            headTexture = Content.Load<Texture2D>("ExampleGame/jeremyhead");
             for (int i = 0; i < positions.Length; i++)
                 Heads[i].Head = headTexture;
 
@@ -155,12 +168,14 @@ namespace TheGame
                 click.Y = (int)(mouse.Y * baseScreenSize.Y / Window.ClientBounds.Height);
             }
 
+            #if ANDROID
             touch = TouchPanel.GetState();
             if(touch.Count>0)
             {
                 click.X = (int)(touch[0].Position.X * baseScreenSize.X / Window.ClientBounds.Width);
                 click.Y = (int)(touch[0].Position.Y * baseScreenSize.Y / Window.ClientBounds.Height);
             }
+            #endif
 
             if (!gameOver)
             {
